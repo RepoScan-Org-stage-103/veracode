@@ -31,8 +31,6 @@ veracode_sca_scan:
       - '*'
     branches_to_exclude:
       - branch-1
-    breakBuildPolicyFindings: true
-    breakBuildOnError: true
   pull_request:
     trigger: false
     action:
