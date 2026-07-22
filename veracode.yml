@@ -26,9 +26,9 @@ veracode_static_scan:
       - Veracode Static Scan
 veracode_sca_scan:
   push:
-    trigger: false
+    trigger: true
     branches_to_run:
-      - master
+      - - js-dynamic-test
     branches_to_exclude:
       - branch-1
   pull_request:
