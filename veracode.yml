@@ -28,9 +28,9 @@ veracode_sca_scan:
   push:
     trigger: true
     branches_to_run:
-      - js-dynamic
+      - master
     branches_to_exclude:
-      - default_branch
+      - js-dynamic
   pull_request:
     trigger: false
     action:
