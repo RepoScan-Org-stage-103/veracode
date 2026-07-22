@@ -26,7 +26,7 @@ veracode_static_scan:
       - Veracode Static Scan
 veracode_sca_scan:
   push:
-    trigger: false
+    trigger: true
     branches_to_run:
       - '*'
     branches_to_exclude:
@@ -50,6 +50,8 @@ veracode_sca_scan:
   fix_for_sca:
     pull_request:
       trigger: true
+  breakBuildPolicyFindings: true
+  breakBuildOnError: true
 veracode_iac_secrets_scan:
   push:
     trigger: false
