@@ -84,7 +84,6 @@ jobs:
 
           if [[ "${{ inputs.event_name }}" == *"ruby"* ]]; then
             source /etc/profile.d/rvm.sh
-            rvm pkg install openssl
             rvm install ruby-${{ inputs.ruby_version }}
           fi
 
@@ -105,6 +104,8 @@ jobs:
             gem install bundler -v ${{ inputs.bundle_version }}
             bundle install
             cd ..
+            RUBY_API_VERSION=$(echo "${{ inputs.ruby_version }}" | cut -d. -f1,2).0
+            gem uninstall -i /usr/local/rvm/rubies/ruby-${{ inputs.ruby_version }}/lib/ruby/gems/${RUBY_API_VERSION}  rubygems-bundler -a -x
           fi
           PACKAGE_CMD="veracode package --source source-code --output veracode-artifacts --trust"
 
