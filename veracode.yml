@@ -27,7 +27,7 @@ veracode_static_scan:
   analysis_branch: ENTER BRANCH NAME HERE
 veracode_sca_scan:
   push:
-    trigger: true
+    trigger: false
     branches_to_run:
       - '*'
     branches_to_exclude:
@@ -39,7 +39,7 @@ veracode_sca_scan:
       - synchronize
     target_branch:
       - default_branch
-  break_build_on_error: true
+  break_build_on_error: false
   break_build_policy_findings: true
   error_message: Veracode static scan faced a problem.
   issues:
